@@ -19,9 +19,8 @@ function analyze() {
   if (uploadFiles.length !== 1) alert("Please select a file to analyze!");
 
   el("analyze-button").innerHTML = "Analyzing..., please wait";
-  el("analyze-button").style.backgroundColor = "red";
-  el("analyze-button").innerHTML.style( = "Analyzing..., please wait";
-
+  el("analyze-button").style.background = "red";
+  
   var xhr = new XMLHttpRequest();
   var loc = window.location;
   xhr.open("POST", `${loc.protocol}//${loc.hostname}:${loc.port}/analyze`,
