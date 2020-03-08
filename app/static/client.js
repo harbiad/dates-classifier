@@ -18,7 +18,10 @@ function analyze() {
   var uploadFiles = el("file-input").files;
   if (uploadFiles.length !== 1) alert("Please select a file to analyze!");
 
-  el("analyze-button").innerHTML = "Analyzing...";
+  el("analyze-button").innerHTML = "Analyzing..., please wait";
+  el("analyze-button").style.backgroundColor = "red";
+  el("analyze-button").innerHTML.style( = "Analyzing..., please wait";
+
   var xhr = new XMLHttpRequest();
   var loc = window.location;
   xhr.open("POST", `${loc.protocol}//${loc.hostname}:${loc.port}/analyze`,
@@ -32,6 +35,7 @@ function analyze() {
       el("result-label").innerHTML = `Result = ${response["result"]}`;
     }
     el("analyze-button").innerHTML = "Analyze";
+    el("analyze-button").style.backgroundColor = "green";
   };
 
   var fileData = new FormData();
